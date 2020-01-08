@@ -22,7 +22,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("Views/login_window.fxml"));
-        this.primaryStage.setTitle("Password Manager");
+        this.primaryStage.setTitle("Password Manager");//
         this.primaryStage.setResizable(false);
         this.primaryStage.setScene(new Scene(root, 400,400));
         this.primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("Views/Images/keylock.png")));
