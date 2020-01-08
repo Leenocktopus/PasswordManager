@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="399.00019999999495" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="UI.Controllers.MainController">
+  <MenuBar prefHeight="25.0" prefWidth="399.000244140625">
+    <Menu mnemonicParsing="false" text="File">
+      <MenuItem mnemonicParsing="false" onAction="#importFromCSV" text="Import from CSV" />
+      <MenuItem mnemonicParsing="false" onAction="#exportToCSV" text="Export to CSV" />
+    </Menu>
+    <Menu mnemonicParsing="false" text="Settings">
+      <MenuItem mnemonicParsing="false" onAction="#deleteAccount" text="Delete Account" />
+    </Menu>
+    <Menu mnemonicParsing="false" text="Help">
+      <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
+    </Menu>
+  </MenuBar>
+  <GridPane layoutX="278.0" layoutY="37.0" prefWidth="107.0" vgap="5.0">
+
+      <Label text="Search:" GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <font>
+          <Font size="13.0" />
+        </font>
+      </Label>
+      <TextField prefWidth="200.0" fx:id="searchField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" onAction="#search" text="" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+        <graphic>
+          <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@Images/search.png" />
+          </ImageView>
+        </graphic>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#stopSearch" text="" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+        <graphic>
+          <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@Images/close.png" />
+          </ImageView>
+        </graphic>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#add" text="" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+        <graphic>
+          <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@Images/add.png" />
+          </ImageView>
+        </graphic>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#remove" text="" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+        <graphic>
+          <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@Images/remove.png" />
+          </ImageView>
+        </graphic>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#logout" text="" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER">
+        <graphic>
+          <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@Images/logout.png" />
+          </ImageView>
+        </graphic>
+      </Button>
+
+    <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+    </columnConstraints>
+    <rowConstraints>
+      <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+  </GridPane>
+  <ListView fx:id="passwordList" layoutX="14.0" layoutY="37.0" onMouseClicked="#edit" prefHeight="339.0" prefWidth="242.0" />
+
+</AnchorPane>
