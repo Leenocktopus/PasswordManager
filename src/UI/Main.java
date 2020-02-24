@@ -19,18 +19,19 @@ public class Main extends Application {
 
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
-        this.primaryStage = primaryStage;
+    public void start(Stage ps) throws IOException {
+        primaryStage = ps;
         Parent root = FXMLLoader.load(getClass().getResource("Views/login_window.fxml"));
-        this.primaryStage.setTitle("Password Manager");//
-        this.primaryStage.setResizable(false);
-        this.primaryStage.setScene(new Scene(root, 400,400));
-        this.primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("Views/Images/keylock.png")));
-        this.primaryStage.show();
+        primaryStage.setTitle("Password Manager");//
+        primaryStage.setResizable(false);
+        primaryStage.setScene(new Scene(root, 400,400));
+        primaryStage.getScene().getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("Views/Images/keylock.png")));
+        primaryStage.show();
 
     }
     public void switchScene(String fxml) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource(fxml));
-        this.primaryStage.getScene().setRoot(root);
+        primaryStage.getScene().setRoot(root);
     }
 }

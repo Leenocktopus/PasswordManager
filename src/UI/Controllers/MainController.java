@@ -6,8 +6,8 @@ import com.company.DAO.UserDao;
 import com.company.Domain.Password;
 import com.company.Domain.User;
 import com.company.Service.CSVService;
-import com.company.Service.PasswordService;
-import com.company.Service.UserService;
+import com.company.DAO.PasswordRepository;
+import com.company.DAO.UserRepository;
 import javafx.collections.FXCollections;
 
 import javafx.event.ActionEvent;
@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
 
 public class MainController {
     public static User user;
-    private static UserDao userDao = new UserService();
+    private static UserDao userDao = new UserRepository();
     private static PasswordDao passwordDao;
     public TextField searchField;
     private List<Password> pl;
@@ -36,7 +36,7 @@ public class MainController {
 
     @FXML
     private void initialize(){
-        passwordDao = new PasswordService(user);
+        passwordDao = new PasswordRepository(user);
         pl = passwordDao.getAllPasswords();
         passwordList.setItems(FXCollections.observableList(pl));
     }

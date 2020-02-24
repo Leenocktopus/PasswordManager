@@ -3,7 +3,7 @@ package UI.Controllers;
 import UI.Main;
 import com.company.DAO.PasswordDao;
 import com.company.Domain.Password;
-import com.company.Service.PasswordService;
+import com.company.DAO.PasswordRepository;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -17,7 +17,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 
 public class PasswordWindowController {
-    public PasswordDao passwordDao = new PasswordService(MainController.user);
+    public PasswordDao passwordDao = new PasswordRepository(MainController.user);
 
     public static String p;
     public static String u;

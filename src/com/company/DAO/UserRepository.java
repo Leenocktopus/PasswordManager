@@ -1,4 +1,4 @@
-package com.company.Service;
+package com.company.DAO;
 
 import com.company.Connection.DBConnection;
 import com.company.DAO.UserDao;
@@ -10,7 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class UserService extends DBConnection implements UserDao {
+public class UserRepository extends DBConnection implements UserDao {
 
     public final static String add = "INSERT INTO USER(login, password) VALUES(?,?)";
     public final static String selectByLogin = "SELECT password FROM USER WHERE login=?";

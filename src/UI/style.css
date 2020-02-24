@@ -1,5 +1,10 @@
-Label{
-     -fx-border-color: red;
-     -fx-padding: 5px 10px;
-     -fx-text-alignment: center"
- }
+
+#errorLabel{
+    -fx-background-color: #ff9a8a;
+    -fx-border-color: #ff9a8a;
+    -fx-text-fill: red;
+    -fx-padding: 5px 10px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-text-alignment: center;
+}

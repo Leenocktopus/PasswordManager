@@ -3,7 +3,7 @@ package UI.Controllers;
 import UI.Main;
 import com.company.DAO.UserDao;
 import com.company.Domain.User;
-import com.company.Service.UserService;
+import com.company.DAO.UserRepository;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -18,7 +18,7 @@ public class LoginWindowController {
     @FXML private TextField loginField;
     @FXML private PasswordField passwordField;
     @FXML private Label errorLabel;
-    private static final UserDao userDao = new UserService();
+    private static final UserDao userDao = new UserRepository();
     public void signUp(ActionEvent actionEvent) {
         Main m = new Main();
         try{

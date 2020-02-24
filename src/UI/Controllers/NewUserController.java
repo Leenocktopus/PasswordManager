@@ -2,9 +2,8 @@ package UI.Controllers;
 
 import UI.Main;
 import com.company.DAO.UserDao;
-import com.company.Domain.Password;
 import com.company.Domain.User;
-import com.company.Service.UserService;
+import com.company.DAO.UserRepository;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -16,7 +15,7 @@ import javafx.scene.input.KeyEvent;
 import java.io.IOException;
 
 public class NewUserController {
-    private final UserDao userDao = new UserService();
+    private final UserDao userDao = new UserRepository();
     @FXML private TextField loginField;
     @FXML private PasswordField passwordField1;
     @FXML private PasswordField passwordField2;

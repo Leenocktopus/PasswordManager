@@ -1,15 +1,16 @@
-package com.company.Service;
+package com.company.DAO;
 
 import com.company.Connection.DBConnection;
 import com.company.DAO.PasswordDao;
 import com.company.Domain.Password;
 import com.company.Domain.User;
+import com.company.Service.EncryptionService;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PasswordService extends DBConnection implements PasswordDao {
+public class PasswordRepository extends DBConnection implements PasswordDao {
     User user;
     public final static String add = "INSERT INTO passwords(login, password, url, user_id, desc, notes) VALUES(?,?,?,?,?,?)";
     public final static String get = "SELECT  login, password, url, desc, notes " +
@@ -22,7 +23,7 @@ public class PasswordService extends DBConnection implements PasswordDao {
                                         "WHERE login=? and password=? and url=? and user_id=?";
     public final static String deleteByUser = "DELETE FROM passwords WHERE user_id=?";
 
-     public PasswordService(User user){
+     public PasswordRepository(User user){
          this.user = user;
      }
     @Override
