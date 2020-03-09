@@ -2,17 +2,17 @@
 
 **Good**
 
-Password manager built with JavaFX and SQLite.
+- Password manager built with JavaFX and SQLite.
 
-Passwords are encrypted using AES cipher.
+- Passwords are encrypted using AES cipher.
 
 **Bad**
 
-The project uses a horrendous DAO's with pure JDBC, so, there is a lot of boilerplate code.
+- The project uses a horrendous DAO's with pure JDBC, so there is a lot of boilerplate code.
 
-Bad coupling between classes. 
+- Bad coupling between classes. 
 
-No service layer or error handlers. Everything happens on controller layer.
+- No service layer or error handlers. Everything happens on controller layer.
 
 Main features:
 - Create new account
