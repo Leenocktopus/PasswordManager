@@ -1,10 +1,9 @@
-package com.company.Connection;
+package com.leandoer.logic.Connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ResourceBundle;
 
 public class DBConnection {
     public static final String createTable1 = "CREATE TABLE if not EXISTS user (\n" +

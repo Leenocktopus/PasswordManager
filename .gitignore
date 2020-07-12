@@ -1,4 +1,4 @@
-out
 .idea
-PM.iml
-src/META-INF
+*.iml
+target
+*.mv.db

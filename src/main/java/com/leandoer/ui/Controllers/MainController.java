@@ -1,13 +1,13 @@
-package UI.Controllers;
+package com.leandoer.ui.Controllers;
 
-import UI.Main;
-import com.company.DAO.PasswordDao;
-import com.company.DAO.UserDao;
-import com.company.Domain.Password;
-import com.company.Domain.User;
-import com.company.Service.CSVService;
-import com.company.DAO.PasswordRepository;
-import com.company.DAO.UserRepository;
+import com.leandoer.ui.Main;
+import com.leandoer.logic.DAO.PasswordDao;
+import com.leandoer.logic.DAO.UserDao;
+import com.leandoer.logic.Domain.Password;
+import com.leandoer.logic.Domain.User;
+import com.leandoer.logic.Service.CSVService;
+import com.leandoer.logic.DAO.PasswordRepository;
+import com.leandoer.logic.DAO.UserRepository;
 import javafx.collections.FXCollections;
 
 import javafx.event.ActionEvent;

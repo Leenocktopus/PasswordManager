@@ -1,4 +1,4 @@
-package com.company.Domain;
+package com.leandoer.logic.Domain;
 
 public class User {
     private String login;

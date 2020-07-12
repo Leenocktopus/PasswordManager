@@ -1,4 +1,4 @@
-package com.company.Service;
+package com.leandoer.logic.Service;
 
 import org.apache.commons.codec.binary.Base64;
 

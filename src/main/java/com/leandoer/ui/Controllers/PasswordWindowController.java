@@ -1,9 +1,9 @@
-package UI.Controllers;
+package com.leandoer.ui.Controllers;
 
-import UI.Main;
-import com.company.DAO.PasswordDao;
-import com.company.Domain.Password;
-import com.company.DAO.PasswordRepository;
+import com.leandoer.ui.Main;
+import com.leandoer.logic.DAO.PasswordDao;
+import com.leandoer.logic.Domain.Password;
+import com.leandoer.logic.DAO.PasswordRepository;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

@@ -1,9 +1,9 @@
-package com.company.Service;
+package com.leandoer.logic.Service;
 
-import com.company.DAO.PasswordDao;
-import com.company.DAO.PasswordRepository;
-import com.company.Domain.Password;
-import com.company.Domain.User;
+import com.leandoer.logic.DAO.PasswordDao;
+import com.leandoer.logic.DAO.PasswordRepository;
+import com.leandoer.logic.Domain.Password;
+import com.leandoer.logic.Domain.User;
 
 import java.io.IOException;
 import java.nio.file.Files;

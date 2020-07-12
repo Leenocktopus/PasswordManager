@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+	<persistence-unit name="password_manager">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+			<property name="hibernate.connection.driverClass" value="org.h2.Driver"/>
+			<property name="hibernate.connection.url" value="jdbc:h2:file:./src/main/resources/password_manager"/>
+			<property name="hibernate.connection.username" value=""/>
+			<property name="hibernate.connection.password" value=""/>
+			<property name="hibernate.hbm2ddl.auto" value="create"/>
+		</properties>
+	</persistence-unit>
+
+</persistence>

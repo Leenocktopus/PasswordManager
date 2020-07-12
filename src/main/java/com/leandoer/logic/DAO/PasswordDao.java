@@ -1,6 +1,6 @@
-package com.company.DAO;
+package com.leandoer.logic.DAO;
 
-import com.company.Domain.Password;
+import com.leandoer.logic.Domain.Password;
 
 
 import java.util.List;

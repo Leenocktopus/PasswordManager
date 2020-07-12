@@ -1,9 +1,9 @@
-package UI.Controllers;
+package com.leandoer.ui.Controllers;
 
-import UI.Main;
-import com.company.DAO.UserDao;
-import com.company.Domain.User;
-import com.company.DAO.UserRepository;
+import com.leandoer.ui.Main;
+import com.leandoer.logic.DAO.UserDao;
+import com.leandoer.logic.Domain.User;
+import com.leandoer.logic.DAO.UserRepository;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

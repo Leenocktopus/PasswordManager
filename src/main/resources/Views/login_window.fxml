@@ -9,7 +9,7 @@
             maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="399.999806811531"
             prefWidth="399.9998779296875" xmlns:fx="http://javafx.com/fxml/1"
-            xmlns="http://javafx.com/javafx/2.2" fx:controller="UI.Controllers.LoginWindowController"
+            xmlns="http://javafx.com/javafx/2.2" fx:controller="com.leandoer.ui.Controllers.LoginWindowController"
             onKeyPressed="#signInKey" >
 
     <GridPane alignment="TOP_CENTER" layoutX="100.0" layoutY="145.0" prefHeight="68.0">

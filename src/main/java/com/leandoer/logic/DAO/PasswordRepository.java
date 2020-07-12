@@ -1,10 +1,9 @@
-package com.company.DAO;
+package com.leandoer.logic.DAO;
 
-import com.company.Connection.DBConnection;
-import com.company.DAO.PasswordDao;
-import com.company.Domain.Password;
-import com.company.Domain.User;
-import com.company.Service.EncryptionService;
+import com.leandoer.logic.Connection.DBConnection;
+import com.leandoer.logic.Domain.Password;
+import com.leandoer.logic.Domain.User;
+import com.leandoer.logic.Service.EncryptionService;
 
 import java.sql.*;
 import java.util.ArrayList;

@@ -9,7 +9,7 @@
             maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="399.9999000000025"
             prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1"
-            xmlns="http://javafx.com/javafx/2.2" fx:controller="UI.Controllers.NewUserController"
+            xmlns="http://javafx.com/javafx/2.2" fx:controller="com.leandoer.ui.Controllers.NewUserController"
             onKeyPressed="#signUpKey">
 
     <GridPane layoutX="79.0" layoutY="118.0" prefWidth="243.0">

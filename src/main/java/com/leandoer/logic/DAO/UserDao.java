@@ -1,9 +1,6 @@
-package com.company.DAO;
+package com.leandoer.logic.DAO;
 
-import com.company.Domain.Password;
-import com.company.Domain.User;
-
-import java.sql.SQLException;
+import com.leandoer.logic.Domain.User;
 
 public interface UserDao {
     // Create new user

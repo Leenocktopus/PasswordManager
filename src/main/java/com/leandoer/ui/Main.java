@@ -1,6 +1,5 @@
-package UI;
+package com.leandoer.ui;
 
-import com.sun.javafx.application.HostServicesDelegate;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,7 +7,10 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.io.IOException;
+
 
 public class Main extends Application {
 
@@ -16,17 +18,18 @@ public class Main extends Application {
         launch(args);
     }
     private static Stage primaryStage;
-
+    public static EntityManagerFactory emf = Persistence.createEntityManagerFactory("password_manager");
 
     @Override
     public void start(Stage ps) throws IOException {
+
         primaryStage = ps;
-        Parent root = FXMLLoader.load(getClass().getResource("Views/login_window.fxml"));
+        Parent root = FXMLLoader.load(ClassLoader.getSystemClassLoader().getResource("Views/login_window.fxml"));
         primaryStage.setTitle("Password Manager");//
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root, 400,400));
-        primaryStage.getScene().getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("Views/Images/keylock.png")));
+        primaryStage.getScene().getStylesheets().add(ClassLoader.getSystemClassLoader().getResource("style.css").getPath());
+        primaryStage.getIcons().add(new Image(ClassLoader.getSystemClassLoader().getResourceAsStream("Views/Images/keylock.png")));
         primaryStage.show();
 
     }

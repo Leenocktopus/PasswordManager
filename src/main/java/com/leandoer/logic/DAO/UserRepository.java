@@ -1,9 +1,7 @@
-package com.company.DAO;
+package com.leandoer.logic.DAO;
 
-import com.company.Connection.DBConnection;
-import com.company.DAO.UserDao;
-import com.company.Domain.Password;
-import com.company.Domain.User;
+import com.leandoer.logic.Connection.DBConnection;
+import com.leandoer.logic.Domain.User;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.sql.Connection;
