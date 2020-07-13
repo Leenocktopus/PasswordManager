@@ -1,32 +1,36 @@
-package com.leandoer.logic.Domain;
+package com.leandoer.logic.domain;
 
+
+import lombok.*;
+
+import javax.persistence.*;
+import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity(name = "User")
+@Table(name = "user", indexes = {
+        @Index(name = "unique_index_username", columnList = "username", unique = true)
+})
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class User {
-    private String login;
+    @Id
+    @GeneratedValue(generator = "pm_generator")
+    private long id;
+
+    @EqualsAndHashCode.Include
+    @Column(name = "username", length = 30)
+    @Size(max = 30)
+    private String username;
+
+    @Column(name = "password", length = 30)
+    @Size(max = 30)
     private String password;
 
-    public User(String login, String password) {
-        this.login = login;
-        this.password = password;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public String toString() {
-        return "Login: "+this.login+" Password: "+this.password;
-    }
+    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+    List<Password> passwords = new ArrayList<>();
 }

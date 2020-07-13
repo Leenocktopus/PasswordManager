@@ -1,68 +1,45 @@
-package com.leandoer.logic.Domain;
+package com.leandoer.logic.domain;
 
+import lombok.*;
+
+import javax.persistence.*;
+import javax.validation.constraints.Size;
+
+@Entity(name = "Password")
+@Table(name = "password", indexes = {
+        @Index(name = "unique_index_username_url", columnList = "username, resource_url, user_id", unique = true)
+})
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Password {
-    private String login;
+    @Id
+    @GeneratedValue(generator = "pm_generator")
+    @Column(name = "id")
+    private long id;
+
+    @EqualsAndHashCode.Include
+    @Column(name = "username", length = 30)
+    @Size(max = 30)
+    private String username;
+
+    @Column(name = "password", length = 30)
+    @Size(max = 30)
     private String password;
+
+    @EqualsAndHashCode.Include
+    @Column(name = "resource_url")
+    @Size(max = 255)
     private String resourceUrl;
-    private String desc;
-    private String notes;
 
-    public String getResourceUrl() {
-        return resourceUrl;
-    }
+    @Column(name = "description")
+    @Size(max = 255)
+    private String description;
 
-    public String getLogin() {
-        return login;
-    }
-
-    public Password(String login, String password, String resourceUrl, String desc, String notes) {
-        this.login = login;
-        this.password = password;
-        this.resourceUrl = resourceUrl;
-        this.desc = desc;
-        this.notes = notes;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setResourceUrl(String resourceUrl) {
-        this.resourceUrl = resourceUrl;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public String getNotes() {
-        return notes;
-    }
-
-    public String toCSV(){
-        return this.login+","+this.password+","+this.resourceUrl+","+this.desc+","+this.notes;
-    }
-    @Override
-    public String toString() {
-        return this.desc+"; "+this.resourceUrl;
-    }
-
-
-
+    @EqualsAndHashCode.Include
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }
