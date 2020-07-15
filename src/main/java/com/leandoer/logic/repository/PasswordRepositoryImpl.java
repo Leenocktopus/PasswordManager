@@ -45,5 +45,16 @@ public class PasswordRepositoryImpl implements PasswordRepository {
         entityManager.getTransaction().commit();
     }
 
+    @Override
+    public void deleteAllByUser(User user) {
+        EntityManager entityManager = factory.createEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager
+                .createQuery("delete Password p where p.user = :user")
+                .setParameter("user", user)
+                .executeUpdate();
+        entityManager.getTransaction().commit();
+    }
+
 
 }

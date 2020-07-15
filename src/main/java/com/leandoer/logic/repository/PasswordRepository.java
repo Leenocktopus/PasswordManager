@@ -14,4 +14,6 @@ public interface PasswordRepository {
 
     void delete(Password password);
 
+    void deleteAllByUser(User user);
+
 }

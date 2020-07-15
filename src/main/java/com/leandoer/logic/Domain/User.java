@@ -14,23 +14,22 @@ import java.util.List;
 })
 @Getter
 @Setter
-@ToString
+@ToString(of = {"id", "username", "password"})
 @NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@EqualsAndHashCode(of = {"username"})
 public class User {
     @Id
     @GeneratedValue(generator = "pm_generator")
     private long id;
 
-    @EqualsAndHashCode.Include
     @Column(name = "username", length = 30)
-    @Size(max = 30)
+    @Size(min = 6, max = 30)
     private String username;
 
-    @Column(name = "password", length = 30)
-    @Size(max = 30)
+    @Column(name = "password", length = 64)
+    @Size(min = 64, max = 64)
     private String password;
 
-    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", orphanRemoval = true, fetch = FetchType.LAZY)
     List<Password> passwords = new ArrayList<>();
 }

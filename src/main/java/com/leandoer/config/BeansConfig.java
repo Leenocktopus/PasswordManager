@@ -1,12 +1,11 @@
 package com.leandoer.config;
-
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.*;
-import org.springframework.stereotype.Component;
 
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+@Slf4j
 @Configuration
 @ComponentScan(basePackages = {"com.leandoer"})
 public class BeansConfig {
@@ -14,12 +13,16 @@ public class BeansConfig {
     @Profile("production")
     @Bean(name = "entityManagerFactory")
     public EntityManagerFactory entityManagerFactoryProduction(){
-        return Persistence.createEntityManagerFactory("password_manager");
+        String persistenceUnitName = "password_manager";
+        log.debug("Initializing entity manager factory for unit: "+persistenceUnitName);
+        return Persistence.createEntityManagerFactory(persistenceUnitName);
     }
 
     @Profile("test")
     @Bean(name = "entityManagerFactory")
     public EntityManagerFactory entityManagerFactoryTest(){
-        return Persistence.createEntityManagerFactory("pm_test");
+        String persistenceUnitName = "pm_test";
+        log.debug("Initializing entity manager factory for unit: "+persistenceUnitName);
+        return Persistence.createEntityManagerFactory(persistenceUnitName);
     }
 }

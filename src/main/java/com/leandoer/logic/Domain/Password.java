@@ -11,25 +11,23 @@ import javax.validation.constraints.Size;
 })
 @Getter
 @Setter
-@ToString
+@ToString(of = {"id","username", "password", "description", "resourceUrl"})
 @NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@EqualsAndHashCode(of = {"username", "resourceUrl", "user"})
 public class Password {
     @Id
     @GeneratedValue(generator = "pm_generator")
     @Column(name = "id")
     private long id;
 
-    @EqualsAndHashCode.Include
     @Column(name = "username", length = 30)
-    @Size(max = 30)
+    @Size(min = 6, max = 30)
     private String username;
 
-    @Column(name = "password", length = 30)
-    @Size(max = 30)
+    @Column(name = "password", length = 120)
+    @Size(min = 6, max = 120)
     private String password;
 
-    @EqualsAndHashCode.Include
     @Column(name = "resource_url")
     @Size(max = 255)
     private String resourceUrl;
@@ -38,7 +36,6 @@ public class Password {
     @Size(max = 255)
     private String description;
 
-    @EqualsAndHashCode.Include
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

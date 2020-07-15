@@ -6,9 +6,21 @@
 			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
 			<property name="hibernate.connection.driverClass" value="org.h2.Driver"/>
 			<property name="hibernate.connection.url" value="jdbc:h2:file:./src/main/resources/password_manager"/>
-			<property name="hibernate.connection.username" value=""/>
-			<property name="hibernate.connection.password" value=""/>
-			<property name="hibernate.hbm2ddl.auto" value="create"/>
+			<property name="hibernate.connection.username" value="root"/>
+			<property name="hibernate.connection.password" value="root"/>
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
+		</properties>
+	</persistence-unit>
+
+	<persistence-unit name="pm_test">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+			<property name="hibernate.connection.driverClass" value="org.h2.Driver"/>
+			<property name="hibernate.connection.url" value="jdbc:h2:mem:pm_test"/>
+			<property name="hibernate.connection.username" value="root"/>
+			<property name="hibernate.connection.password" value="root"/>
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
 		</properties>
 	</persistence-unit>
 
