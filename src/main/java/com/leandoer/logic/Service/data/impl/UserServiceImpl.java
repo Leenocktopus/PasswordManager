@@ -1,12 +1,11 @@
 package com.leandoer.logic.service.data.impl;
 
-import com.leandoer.logic.domain.Password;
 import com.leandoer.logic.domain.User;
 import com.leandoer.logic.repository.PasswordRepository;
 import com.leandoer.logic.repository.UserRepository;
+import com.leandoer.logic.service.data.UserService;
 import com.leandoer.logic.service.security.Authentication;
 import com.leandoer.logic.service.security.crypto.PasswordEncoder;
-import com.leandoer.logic.service.data.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +27,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void createAccount(User user) {
-        if (user.getPassword() == null || user.getPassword().isEmpty()){
+        if (user.getPassword() == null || user.getPassword().isEmpty()) {
             throw new RuntimeException();
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()).orElseThrow(RuntimeException::new));

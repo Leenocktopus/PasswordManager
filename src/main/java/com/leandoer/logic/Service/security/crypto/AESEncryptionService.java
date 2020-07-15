@@ -4,11 +4,9 @@ package com.leandoer.logic.service.security.crypto;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.Cipher;
-
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -18,14 +16,14 @@ import java.util.Optional;
 @Service
 public class AESEncryptionService implements EncryptionService {
     public static final IvParameterSpec parameterSpec =
-            new IvParameterSpec(new byte[]{ 2, 1, 0, 3, 1, 0, 4, 7, 0, 0, 0, 1, 4, 0, 0, 0});
+            new IvParameterSpec(new byte[]{2, 1, 0, 3, 1, 0, 4, 7, 0, 0, 0, 1, 4, 0, 0, 0});
 
-    public SecretKeySpec getKey(String originalKey){
+    public SecretKeySpec getKey(String originalKey) {
 
         SecretKeySpec secretKey = null;
         try {
-            byte [] key = originalKey.getBytes(StandardCharsets.UTF_8);
-            key =  MessageDigest.getInstance("SHA-1").digest(key);
+            byte[] key = originalKey.getBytes(StandardCharsets.UTF_8);
+            key = MessageDigest.getInstance("SHA-1").digest(key);
             key = Arrays.copyOf(key, 16);
             secretKey = new SecretKeySpec(key, "AES");
         } catch (NoSuchAlgorithmException e) {
@@ -35,7 +33,7 @@ public class AESEncryptionService implements EncryptionService {
     }
 
     @Override
-    public Optional<String> encrypt(String data, String key){
+    public Optional<String> encrypt(String data, String key) {
         SecretKeySpec secretKey = getKey(key);
         Cipher cipher = null;
         try {
@@ -50,7 +48,7 @@ public class AESEncryptionService implements EncryptionService {
     }
 
     @Override
-    public Optional<String> decrypt(String data, String key){
+    public Optional<String> decrypt(String data, String key) {
         SecretKeySpec secretKey = getKey(key);
         Cipher cipher = null;
         try {
@@ -62,11 +60,6 @@ public class AESEncryptionService implements EncryptionService {
         }
         return Optional.empty();
     }
-
-
-
-
-
 
 
 }

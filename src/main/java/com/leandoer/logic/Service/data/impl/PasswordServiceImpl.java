@@ -9,11 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class PasswordServiceImpl implements PasswordService {
     PasswordRepository passwordRepository;
     @Autowired
     EncryptionService encryptionService;
+
     @Autowired
     public PasswordServiceImpl(PasswordRepository passwordRepository) {
         this.passwordRepository = passwordRepository;
@@ -21,7 +23,7 @@ public class PasswordServiceImpl implements PasswordService {
 
     @Override
     public void save(Password password) {
-        password.setPassword(encryptionService.encrypt(password.getPassword(),"mock")
+        password.setPassword(encryptionService.encrypt(password.getPassword(), "mock")
                 .orElseThrow(RuntimeException::new));
         passwordRepository.save(password);
     }

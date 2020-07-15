@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 })
 @Getter
 @Setter
-@ToString(of = {"id","username", "password", "description", "resourceUrl"})
+@ToString(of = {"id", "username", "password", "description", "resourceUrl"})
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"username", "resourceUrl", "user"})
 public class Password {

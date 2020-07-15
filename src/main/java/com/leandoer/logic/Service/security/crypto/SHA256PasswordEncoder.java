@@ -11,7 +11,7 @@ import java.util.Optional;
 public class SHA256PasswordEncoder implements PasswordEncoder {
 
     @Override
-    public Optional<String> encode(String data){
+    public Optional<String> encode(String data) {
         MessageDigest digest = null;
         try {
             digest = MessageDigest.getInstance("SHA-256");

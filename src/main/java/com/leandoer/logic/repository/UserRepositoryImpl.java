@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
 @Repository
-public class UserRepositoryImpl implements UserRepository{
+public class UserRepositoryImpl implements UserRepository {
 
     EntityManagerFactory factory;
 
@@ -26,7 +26,6 @@ public class UserRepositoryImpl implements UserRepository{
         entityManager.persist(user);
         entityManager.getTransaction().commit();
     }
-
 
 
     @Override
