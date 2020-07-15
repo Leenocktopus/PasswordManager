@@ -24,7 +24,7 @@ public class PasswordRepositoryImpl implements PasswordRepository {
     public void save(Password password) {
         EntityManager entityManager = factory.createEntityManager();
         entityManager.getTransaction().begin();
-        entityManager.persist(password);
+        entityManager.persist(entityManager.contains(password) ? password : entityManager.merge(password));
         entityManager.getTransaction().commit();
     }
 

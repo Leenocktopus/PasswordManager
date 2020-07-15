@@ -1,49 +1,63 @@
-package com.leandoer.logic.Service;
+package com.leandoer.logic.service;
 
-import com.leandoer.logic.DAO.PasswordDao;
-import com.leandoer.logic.DAO.PasswordRepository;
-import com.leandoer.logic.Domain.Password;
-import com.leandoer.logic.Domain.User;
+import com.leandoer.logic.domain.Password;
+import com.leandoer.logic.domain.User;
+import com.leandoer.logic.repository.PasswordRepository;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-
+@Service
 public class CSVService {
 
-    public static boolean importCSV(String path, User user){
-        boolean imported = false;
+    PasswordRepository passwordRepository;
+
+    @Autowired
+    public CSVService(PasswordRepository passwordRepository) {
+        this.passwordRepository = passwordRepository;
+    }
+
+    public void importFromCSV(String path, User user){
         try{
-        List<Password> s = Files.readAllLines(Paths.get(path))
-                .stream()
-                .map(x->x.split(","))
-                .map(x-> new Password(x[0],x[1],x[2],x[3],x[4]))
-                .collect(Collectors.toList());
-        PasswordDao passwordDao = new PasswordRepository(user);
-        s.forEach(passwordDao::add);
-        imported = true;
+        Files.readAllLines(Paths.get(path)).stream().skip(1)
+                .filter(line -> !line.matches("^\\s*$"))
+                .map(line -> line.replaceAll("\\s+", ""))
+                .map(line->line.split(","))
+                .map(array-> {
+                    Password password = new Password();
+                    password.setUsername(array[0]);
+                    password.setPassword(array[1]);
+                    password.setResourceUrl(array[2]);
+                    password.setDescription(array[3]);
+                    password.setUser(user);
+                    return password;
+                })
+                .forEach(passwordRepository::save);
         } catch (IOException e){
             e.printStackTrace();
         }
-        return imported;
     }
 
-    public static boolean exportCSV(String path, User user){
-        boolean exported = false;
-        try{
-            PasswordDao passwordDao = new PasswordRepository(user);
-            List<String> s = passwordDao.getAllPasswords()
-                    .stream()
-                    .map(Password::toCSV)
-                    .collect(Collectors.toList());
-            Files.write(Paths.get(path),s);
-            exported = true;
-        }catch (IOException e){
+    public void exportToCSV(String path, User user){
+
+        List<String> selectedPasswords = new ArrayList<>(Arrays.asList("username, password, resource_url, description"));
+        System.out.println(Arrays.toString(passwordRepository.findAllByUser(user).toArray()));
+        passwordRepository.findAllByUser(user).stream()
+        .map(password -> password.getUsername() +", " +password.getPassword() + ", "
+                + password.getResourceUrl() + ", "+ password.getDescription())
+        .forEach(selectedPasswords::add);
+        try {
+            Files.write(Paths.get(path), selectedPasswords);
+        } catch (IOException e) {
             e.printStackTrace();
         }
-        return exported;
     }
 
 
