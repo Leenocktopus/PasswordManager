@@ -41,7 +41,7 @@ public class PasswordManager extends Application {
                 Objects.requireNonNull(ClassLoader.getSystemClassLoader().getResource("style.css")).toExternalForm()
         );
         primaryStage.getIcons().add(new Image(Objects.requireNonNull(
-                ClassLoader.getSystemClassLoader().getResourceAsStream("views/Images/keylock.png")
+                ClassLoader.getSystemClassLoader().getResourceAsStream("images/keylock.png")
         )));
     }
 

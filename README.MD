@@ -1,35 +1,24 @@
 **Password Manager** 
 
-**Good**
 
-- Password manager built with JavaFX and SQLite.
+<img align="left" src="src/main/resources/images/first.jpg">
 
-- Passwords are encrypted using AES cipher.
+Technologies used: 
+- Java & JavaFX;
+- Spring IOC;
+- Jpa & Hibernate;
+- H2 database;
+- JUnit.
 
-**Bad**
+<img align="left" src="src/main/resources/images/second.jpg">
+Key features:
+- Create & delete accounts; 
+- Add, edit and delete password records;
+- Search through password records; 
+- Export/Import password records from a .csv file.
 
-- The project uses a horrendous DAO's with pure JDBC, so there is a lot of boilerplate code.
-
-- Bad coupling between classes. 
-
-- No service layer or error handlers. Everything happens on controller layer.
-
-Main features:
-- Create new account
-- Sign in with existing account
-- Export to/Import from CSV file
-- Delete existing account
-
-Images:
-
-![](src/UI/Views/Images/signInSignUp.jpg)
+Security features: 
+- SHA-256 hashing of user passwords;
+- AES encryption of passwords in password records.
 
 
-- create and save new e-mail/password entry
-- change existing entries
-- delete entries
-- search entries by any field
-
-Images:
- 
-![](src/UI/Views/Images/mainWindows.jpg)
