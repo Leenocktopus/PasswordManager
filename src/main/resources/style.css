@@ -1,5 +1,5 @@
 
-#errorLabel{
+#errorLabel {
     -fx-background-color: #ff9a8a;
     -fx-border-color: #ff9a8a;
     -fx-text-fill: red;
@@ -7,4 +7,77 @@
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
     -fx-text-alignment: center;
+}
+
+.list-view {
+    -fx-border-color: #333333;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-background-color: #121212;
+}
+
+.scroll-bar {
+    -fx-background-color: #121212;
+}
+
+.list-cell {
+    -fx-background-color: #121212;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bolder;
+}
+
+.list-cell:selected {
+    -fx-background-color: #BB86FC;
+
+}
+
+.pane {
+    -fx-background-color: #121212;
+}
+
+.label {
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bolder;
+
+}
+
+.text-field {
+    -fx-background-color: #121212;
+    -fx-border-color: #ffffff;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16;
+    -fx-font-weight: bolder;
+    -fx-border-width: 0 0 2 0;
+}
+
+.big-button {
+    -fx-font-size: 16;
+    -fx-background-color: #BB86FC;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bolder;
+}
+
+.button {
+    -fx-font-size: 12;
+    -fx-background-color: #BB86FC;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bolder;
+}
+
+.button:hover {
+    -fx-background-color: rgba(189, 136, 255, 0.71);
+}
+
+.menu-bar, .menu, .menu-item, .menu {
+    -fx-background-color: #121212;
+    -fx-border-color: #121212;
+}
+
+.menu-item:hover {
+    -fx-background-color: #666666;
+}
+
+.context-menu {
+    -fx-skin: "com.sun.javafx.scene.control.skin.ContextMenuSkin";
+    -fx-background-color: #121212;
 }

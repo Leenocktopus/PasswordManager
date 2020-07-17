@@ -1,0 +1,17 @@
+.alert, .alert > *.button-bar > *.container, .alert > *.label.content, .alert *.header-panel, .alert *.header-panel *.label {
+    -fx-background-color: #121212;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bolder;
+    -fx-font-size: 16;
+}
+
+.alert .button {
+    -fx-font-size: 12;
+    -fx-background-color: #BB86FC;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bolder;
+}
+
+.alert .button:hover {
+    -fx-background-color: rgba(189, 136, 255, 0.71);
+}

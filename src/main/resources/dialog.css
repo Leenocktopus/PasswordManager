@@ -1,0 +1,30 @@
+.dialog, .dialog > *.button-bar > *.container, .dialog > *.label.content, .dialog *.header-panel, .dialog *.header-panel *.label, .dialog *.button-bar *.label {
+    -fx-background-color: #121212;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bolder;
+    -fx-font-size: 16;
+}
+
+.dialog .label {
+    -fx-text-fill: #ffffff;
+}
+
+.dialog .text-field {
+    -fx-background-color: #121212;
+    -fx-border-color: #ffffff;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16;
+    -fx-font-weight: bolder;
+    -fx-border-width: 0 0 2 0;
+}
+
+.dialog .button {
+    -fx-font-size: 12;
+    -fx-background-color: #BB86FC;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bolder;
+}
+
+.dialog .button:hover {
+    -fx-background-color: rgba(189, 136, 255, 0.71);
+}
